@@ -12,22 +12,15 @@ const styles = StyleSheet.create({
     },
     buttons:{
         gap: 15,
-        width: '80%'
+        width: '80%',
     },
-    buttonTextMobile:{
+    buttonText:{
         color: '#fff',
         fontFamily:'Poppins_700Bold',
         fontSize:30,
         fontWeight: 700,
         textAlign: 'center'
-    },
-    buttonTextTablet: {
-        color: '#fff',
-        fontFamily:'Poppins_700Bold',
-        fontSize:50,
-        fontWeight: 700,
-        textAlign: 'center'
     }
-});
+})
 
 export default styles

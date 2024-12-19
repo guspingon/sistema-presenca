@@ -1,28 +1,75 @@
-import React, { useEffect } from "react";
-import { Text, View, Button, TouchableOpacity, StyleSheet } from "react-native";
-import styles from './style';
-import { useFonts, Poppins_700Bold } from '@expo-google-fonts/poppins'
+import React from "react";
+import {
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  Dimensions,
+} from "react-native";
+import styles from "./style";
+import { useFonts, Poppins_700Bold } from "@expo-google-fonts/poppins";
+import { useNavigation } from "@react-navigation/native";
+import CompName from "../../page2/Main";
 
-export default function ButtonComp(){
-    const [fontLoaded] = useFonts({
-        Poppins_700Bold
-    })
+const { width } = Dimensions.get("window");
 
-    if(!fontLoaded) {
-        return null
-    }
+const isTablet = width >= 600;
 
-    return(
-        <View style={styles.buttons}>
-            <TouchableOpacity style={styles.buttonStyle}>
-                <Text style={styles.buttonText}>SMS</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonStyle}>
-                <Text style={styles.buttonText}>ALLEIMA</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonStyle}>
-                <Text style={styles.buttonText}>SMR</Text>
-            </TouchableOpacity>
-        </View> 
-    )
+export default function ButtonComp() {
+  const [fontLoaded] = useFonts({
+    Poppins_700Bold,
+  });
+
+  if (!fontLoaded) {
+    return null;
+  }
+
+  const navigation = useNavigation();
+
+  const handlePress = (buttonText) => {
+    navigation.navigate({ buttonText });
+  };
+
+  return (
+    <View style={styles.buttons}>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => {
+          navigation.navigate("EMPRESA", { empresa: "SMS" });
+        }}
+      >
+        <Text
+          style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}
+        >
+          SMS
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => {
+          navigation.navigate("EMPRESA", { empresa: "ALLEIMA" });
+        }}
+      >
+        <Text
+          style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}
+        >
+          ALLEIMA
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => {
+          navigation.navigate("EMPRESA", { empresa: "SMR" });
+        }}
+      >
+        <Text
+          style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}
+        >
+          SMR
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
