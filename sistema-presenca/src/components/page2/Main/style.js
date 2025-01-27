@@ -16,12 +16,22 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: '#000',
       overflow: 'hidden',
-      paddingBottom:20
+      paddingBottom:10
     },
-    boxInput: {
+    boxInputMobile: {
       flexDirection: 'row',
       backgroundColor: '#64908A',
       height: '7%',
+      padding: 10,
+      justifyContent: 'center',
+      borderBottomWidth: 1,
+      borderColor: '#000',
+      alignItems: 'center'
+    },
+    boxInputTablet: {
+      flexDirection: 'row',
+      backgroundColor: '#64908A',
+      height: '12%',
       padding: 10,
       justifyContent: 'center',
       borderBottomWidth: 1,
@@ -33,11 +43,22 @@ const styles = StyleSheet.create({
       fontSize: 20,
       color: '#fff'
     },
-    input: {
+    inputMobile: {
       flex: 1,
       paddingLeft: 10,
       fontFamily:'Poppins_700Bold',
       color: "#fff",
+      height: '100%',
+    },
+    inputTablet: {
+      flex: 1,
+      paddingLeft: 25,
+      fontFamily:'Poppins_700Bold',
+      color: "#fff",
+      height: '100%',
+      fontSize:20,
+      justifyContent:'center',
+      alignItems: 'center'
     },
     flatStyle: {
       padding: 20,
@@ -48,17 +69,34 @@ const styles = StyleSheet.create({
       borderColor: 'grey',
       borderRadius: 10,
       marginTop:10,
-      backgroundColor: "#E8E8E8"
+      backgroundColor: "#E8E8E8",
     },
-    buttonText: {
+    buttonTextMobile: {
       fontSize:20,
       fontFamily:'Poppins_700Bold'
     },
-    clearButtonText: {
+    buttonTextTablet: {
+      fontSize:40,
+      fontFamily:'Poppins_700Bold'
+    },
+    clearButton: {
+      height:'100%',
+      justifyContent:'center'
+    },
+    clearButtonTextMobile: {
       fontSize: 20,
       fontFamily:'Poppins_700Bold',
       color: '#fff',
       paddingRight: 10
+    },
+    clearButtonTextTablet: {
+      fontSize: 40,
+      fontFamily:'Poppins_700Bold',
+      color: '#fff',
+      paddingRight: 10
+    },
+    icon: {
+      paddingLeft:10
     }
   });
 

@@ -9,6 +9,10 @@ import {
   Touchable,
   TouchableOpacity,
   FlatList,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+  Dimensions
 } from "react-native";
 import { Ionicons } from "react-native-vector-icons";
 import styles from "./style";
@@ -22,7 +26,6 @@ export default function CompName({ route, navigation }) {
     ALLEIMA: ["Daiane","Erick","Francisco","Gabriel","Thaisa"],
     SMR: ["Francisco Célio","Matheus Silva","Orlando Neto"],
   };
-
 
   const [searchText, setSearchText] = useState('');
   const [filteredFuncs, setFilteredFuncs] = useState(funcs[empresa]);
@@ -56,20 +59,24 @@ export default function CompName({ route, navigation }) {
     });
   });
 
+  const { width } = Dimensions.get("window");
+  
+  const isTablet = width >= 600;
+
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <View style={styles.boxInput}>
-          <Ionicons name="search" size={20} color="#fff" style={styles.icon} />
+        <View style={isTablet ? styles.boxInputTablet : styles.boxInputMobile}>
+          <Ionicons name="search" color="#fff" size={isTablet ? 40 : 20} style={styles.icon} />
           <TextInput
-            style={styles.input}
+            style={isTablet ? styles.inputTablet : styles.inputMobile}
             placeholder="BUSCAR..."
             placeholderTextColor="rgba(255, 255, 255, 0.8)"
             value={searchText}
             onChangeText={handleSearch}
           ></TextInput>
             <TouchableOpacity onPress={clearSearch} style={styles.clearButton}>
-            <Text style={styles.clearButtonText}>X</Text>
+            <Text style={isTablet ? styles.clearButtonTextTablet : styles.clearButtonTextMobile}>X</Text>
           </TouchableOpacity>
         </View>
         <FlatList
@@ -83,7 +90,7 @@ export default function CompName({ route, navigation }) {
               onPress={() => {
                 navigation.navigate('Refeicao', { empresa, func: item });
               }}>
-              <Text style={styles.buttonText}>{item}</Text>
+              <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>{item}</Text>
             </TouchableOpacity>
           )}
         />

@@ -14,10 +14,17 @@ const styles = StyleSheet.create({
         gap: 15,
         width: '80%',
     },
-    buttonText:{
+    buttonTextMobile:{
         color: '#fff',
         fontFamily:'Poppins_700Bold',
         fontSize:30,
+        fontWeight: 700,
+        textAlign: 'center'
+    },
+    buttonTextTablet: {
+        color: '#fff',
+        fontFamily:'Poppins_700Bold',
+        fontSize:50,
         fontWeight: 700,
         textAlign: 'center'
     }

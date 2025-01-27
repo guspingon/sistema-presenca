@@ -19,10 +19,16 @@ const styles = StyleSheet.create({
         overflow:'hidden',
         justifyContent: 'center'
     },
-    nameStyle: {
+    nameStyleMobile: {
         textAlign: 'center',
         alignContent:'center',
         fontSize: 30,
+        fontFamily:'Poppins_700Bold',
+    },
+    nameStyleTablet: {
+        textAlign: 'center',
+        alignContent:'center',
+        fontSize: 50,
         fontFamily:'Poppins_700Bold',
     }
 })

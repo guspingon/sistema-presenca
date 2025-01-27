@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity, Dimensions } from "react-native";
 import styles from "./style";
+
+const { width } = Dimensions.get("window");
+
+const isTablet = width >= 600;
 
 export default function ButtonMeal({ route, navigation, empresa, func }) {
   return (
@@ -16,7 +20,7 @@ export default function ButtonMeal({ route, navigation, empresa, func }) {
           });
         }}
       >
-        <Text style={styles.buttonText}>CAFÉ DA MANHÃ</Text>
+        <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>CAFÉ DA MANHÃ</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonStyle}
@@ -28,7 +32,7 @@ export default function ButtonMeal({ route, navigation, empresa, func }) {
           });
         }}
       >
-        <Text style={styles.buttonText}>ALMOÇO</Text>
+        <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>ALMOÇO</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonStyle}
@@ -40,7 +44,7 @@ export default function ButtonMeal({ route, navigation, empresa, func }) {
           });
         }}
       >
-        <Text style={styles.buttonText}>JANTAR</Text>
+        <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>JANTAR</Text>
       </TouchableOpacity>
     </View>
   );

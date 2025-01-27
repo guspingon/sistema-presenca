@@ -11,6 +11,7 @@ import {
 import styles from "./style";
 import { useFonts, Poppins_700Bold } from "@expo-google-fonts/poppins";
 import { useNavigation } from "@react-navigation/native";
+import db from "../../../../App";
 
 const { width } = Dimensions.get("window");
 
@@ -34,13 +35,20 @@ export default function ButtonConf() {
   return (
     <View style={styles.buttons}>
       <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>
-            CONFIRMAR
+        <Text
+          style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}
+        >
+          CONFIRMAR
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}>
-            CANCELAR
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => navigation.goBack()}
+      >
+        <Text
+          style={isTablet ? styles.buttonTextTablet : styles.buttonTextMobile}
+        >
+          CANCELAR
         </Text>
       </TouchableOpacity>
     </View>
