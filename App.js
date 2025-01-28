@@ -64,7 +64,7 @@ export default function App() {
         <Stack.Screen name="Funcionario" component={FuncName} />
         <Stack.Screen name="Confirma" component={ConfirmScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Crud" component={CrudSystem} />
+        {/* <Stack.Screen name="Crud" component={CrudSystem} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
